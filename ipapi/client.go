@@ -10,6 +10,7 @@ package ipapi
 
 import (
 	"fmt"
+	"github.com/leafney/rose"
 	"github.com/leafney/rose/reqx"
 	"github.com/tidwall/gjson"
 	"log"
@@ -69,7 +70,9 @@ func (c *IpApi) Parse(ip string) (province string, ok bool, err error) {
 }
 
 func (c *IpApi) SetLang(lang string) *IpApi {
-	c.lang = lang
+	if !rose.StrIsEmpty(lang){
+		c.lang = lang
+	}
 	return c
 }
 
