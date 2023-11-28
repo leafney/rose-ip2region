@@ -8,17 +8,17 @@ Get ip attribution online.
 
 ### Free site support
 
-- `api.vore.top`
 - `ip-api.com`
 - `ip.plyz.net`
 - `ip.useragentinfo.com`
+- `api.vore.top`
 
-| site | ipv4 | ipv6 | lang | recommend |
-| --- | --- | --- | --- | --- |
-| `api.vore.top` | Yes | Yes | No | 1 |
-| `ip-api.com` | Yes | Yes | Yes | 2 |
-| `ip.plyz.net` | Yes | No | No | 3 |
-| `ip.useragentinfo.com` | Yes | No | No | 4 |
+| site                   | ipv4 | ipv6 | lang | recommend             |
+|------------------------|------|------|------|-----------------------|
+| `ip-api.com`           | Yes  | Yes  | Yes  | 1                     |
+| `ip.plyz.net`          | Yes  | No   | No   | 2                     |
+| `ip.useragentinfo.com` | Yes  | No   | No   | 3                     |
+| `api.vore.top`         | Yes  | Yes  | No   | 4 (超时时间一般需要大约2s左右或以上) |
 
 
 Note: Free sites have access frequency limits.

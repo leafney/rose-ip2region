@@ -25,8 +25,9 @@ type IpUAInfo struct {
 
 func NewIpUAInfo() *IpUAInfo {
 	return &IpUAInfo{
-		host:  "https://ip.useragentinfo.com/json",
-		debug: false,
+		host:    "https://ip.useragentinfo.com/json",
+		debug:   false,
+		timeout: 3000,
 	}
 }
 
@@ -65,7 +66,9 @@ func (c *IpUAInfo) Parse(ip string) (province string, ok bool, err error) {
 
 // SetTimeout timeout of Millisecond
 func (c *IpUAInfo) SetTimeout(t int64) *IpUAInfo {
-	c.timeout = t
+	if t > 0 {
+		c.timeout = t
+	}
 	return c
 }
 

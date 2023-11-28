@@ -23,10 +23,12 @@ type IpVore struct {
 	debug   bool
 }
 
+// 注意：该网站请求超市时间一般需要大于2s以上
 func NewIpVore() *IpVore {
 	return &IpVore{
-		host:  "https://api.vore.top/api/IPdata",
-		debug: false,
+		host:    "https://api.vore.top/api/IPdata",
+		debug:   false,
+		timeout: 3000,
 	}
 }
 
@@ -64,7 +66,9 @@ func (c *IpVore) Parse(ip string) (province string, ok bool, err error) {
 
 // SetTimeout timeout of Millisecond
 func (c *IpVore) SetTimeout(t int64) *IpVore {
-	c.timeout = t
+	if t > 0 {
+		c.timeout = t
+	}
 	return c
 }
 

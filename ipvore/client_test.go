@@ -12,7 +12,7 @@ import "testing"
 
 func TestNewIpVore(t *testing.T) {
 	province, ok, err := NewIpVore().
-		SetTimeout(2000).
+		SetTimeout(5000).
 		SetDebug(true).
 		Parse("61.132.188.153")
 	if ok {

@@ -25,8 +25,9 @@ type IpPlyz struct {
 
 func NewIpPlyz() *IpPlyz {
 	return &IpPlyz{
-		host:  "http://ip.plyz.net/ip.ashx",
-		debug: false,
+		host:    "http://ip.plyz.net/ip.ashx",
+		debug:   false,
+		timeout: 3000,
 	}
 }
 
@@ -72,7 +73,9 @@ func (c *IpPlyz) Parse(ip string) (province string, ok bool, err error) {
 
 // SetTimeout timeout of Millisecond
 func (c *IpPlyz) SetTimeout(t int64) *IpPlyz {
-	c.timeout = t
+	if t > 0 {
+		c.timeout = t
+	}
 	return c
 }
 

@@ -27,9 +27,10 @@ type IpApi struct {
 
 func NewIpApi() *IpApi {
 	return &IpApi{
-		host:  "http://ip-api.com/json/{ip}",
-		lang:  "zh-CN",
-		debug: false,
+		host:    "http://ip-api.com/json/{ip}",
+		lang:    "zh-CN",
+		debug:   false,
+		timeout: 3000,
 	}
 }
 
@@ -70,7 +71,7 @@ func (c *IpApi) Parse(ip string) (province string, ok bool, err error) {
 }
 
 func (c *IpApi) SetLang(lang string) *IpApi {
-	if !rose.StrIsEmpty(lang){
+	if !rose.StrIsEmpty(lang) {
 		c.lang = lang
 	}
 	return c
@@ -78,7 +79,9 @@ func (c *IpApi) SetLang(lang string) *IpApi {
 
 // SetTimeout timeout of Millisecond
 func (c *IpApi) SetTimeout(t int64) *IpApi {
-	c.timeout = t
+	if t > 0 {
+		c.timeout = t
+	}
 	return c
 }
 
